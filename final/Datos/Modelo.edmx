@@ -1,0 +1,1281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Bd_GYMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Pri_nom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Seg_nom" Type="varchar" MaxLength="50" />
+          <Property Name="Pri_ape" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Seg_ape" Type="varchar" MaxLength="50" />
+          <Property Name="Cedula" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Imagen" Type="varchar" MaxLength="100" />
+          <Property Name="Genero" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Correo" Type="varchar" MaxLength="80" />
+        </EntityType>
+        <EntityType Name="C_congeladas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_cliente" Type="int" Nullable="false" />
+          <Property Name="Congela" Type="date" Nullable="false" />
+          <Property Name="Regresa" Type="date" Nullable="false" />
+          <Property Name="Dias_rest" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Caja">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Fecha_ini" Type="datetime" Nullable="false" />
+          <Property Name="Fecha_fin" Type="datetime" Nullable="false" />
+          <Property Name="Id_factura" Type="int" Nullable="false" />
+          <Property Name="Valor_dia" Type="int" Nullable="false" />
+          <Property Name="Ganancia_cred" Type="int" Nullable="false" />
+          <Property Name="Ganancia_efec" Type="int" Nullable="false" />
+          <Property Name="Pagos" Type="int" Nullable="false" />
+          <Property Name="Retiros" Type="int" Nullable="false" />
+          <Property Name="Saldo_act" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_persona" Type="int" Nullable="false" />
+          <Property Name="Fecha_pago" Type="date" Nullable="false" />
+          <Property Name="Fecha_vence" Type="date" />
+          <Property Name="Tiempo_mes" Type="int" />
+        </EntityType>
+        <EntityType Name="Creditos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_fact" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="Fecha_lim" Type="date" Nullable="false" />
+          <Property Name="Abono" Type="int" Nullable="false" />
+          <Property Name="Saldo_r" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dptos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Id_pais" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Empresas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Estados_fact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Estados_pers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_estado" Type="int" Nullable="false" />
+          <Property Name="Id_persona" Type="int" Nullable="false" />
+          <Property Name="Comentario" Type="text" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Facturas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_persona" Type="int" Nullable="false" />
+          <Property Name="Id_tipopago" Type="int" Nullable="false" />
+          <Property Name="Id_estado" Type="int" Nullable="false" />
+          <Property Name="Id_servplan" Type="int" Nullable="false" />
+          <Property Name="Valor_t" Type="int" Nullable="false" />
+          <Property Name="Numero_f" Type="int" Nullable="false" />
+          <Property Name="Descuento" Type="int" Nullable="false" />
+          <Property Name="Interes" Type="int" Nullable="false" />
+          <Property Name="Iva" Type="int" Nullable="false" />
+          <Property Name="Flete" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Municipios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Id_dpto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Paises">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Personas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Pri_nom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Seg_nom" Type="varchar" MaxLength="50" />
+          <Property Name="Pri_ape" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Seg_ape" Type="varchar" MaxLength="50" />
+          <Property Name="Cedula" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Imagen" Type="varchar" MaxLength="100" />
+          <Property Name="Genero" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Correo" Type="varchar" MaxLength="80" />
+        </EntityType>
+        <EntityType Name="Planes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sedes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="100" />
+          <Property Name="Telefono" Type="varchar" MaxLength="60" />
+          <Property Name="NIT" Type="varchar" MaxLength="100" />
+          <Property Name="Mail" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Id_propietario" Type="int" />
+          <Property Name="Id_empresa" Type="int" />
+          <Property Name="Id_ubicacion" Type="int" />
+        </EntityType>
+        <EntityType Name="Servicios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Servs_Plns">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_servicio" Type="int" Nullable="false" />
+          <Property Name="Id_plan" Type="int" Nullable="false" />
+          <Property Name="valor" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="T_estados">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tipos_pgs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__C_congela__Id_cl__5CD6CB2B">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+          <End Role="C_congeladas" Type="Self.C_congeladas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="C_congeladas">
+              <PropertyRef Name="Id_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sedes__Id_propie__59FA5E80">
+          <End Role="Admins" Type="Self.Admins" Multiplicity="0..1" />
+          <End Role="Sedes" Type="Self.Sedes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admins">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sedes">
+              <PropertyRef Name="Id_propietario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Caja_Facturas">
+          <End Role="Facturas" Type="Self.Facturas" Multiplicity="1" />
+          <End Role="Caja" Type="Self.Caja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facturas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Caja">
+              <PropertyRef Name="Id_factura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clientes_Personas">
+          <End Role="Personas" Type="Self.Personas" Multiplicity="1" />
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="Id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_creditos_facturas">
+          <End Role="Facturas" Type="Self.Facturas" Multiplicity="1" />
+          <End Role="Creditos" Type="Self.Creditos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facturas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Creditos">
+              <PropertyRef Name="Id_fact" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dptos_paises">
+          <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
+          <End Role="Dptos" Type="Self.Dptos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paises">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dptos">
+              <PropertyRef Name="Id_pais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estados_pers_Personas">
+          <End Role="Personas" Type="Self.Personas" Multiplicity="1" />
+          <End Role="Estados_pers" Type="Self.Estados_pers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Estados_pers">
+              <PropertyRef Name="Id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estados_pers_T_estados">
+          <End Role="T_estados" Type="Self.T_estados" Multiplicity="1" />
+          <End Role="Estados_pers" Type="Self.Estados_pers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_estados">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Estados_pers">
+              <PropertyRef Name="Id_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Facturas_Estados_fact">
+          <End Role="Estados_fact" Type="Self.Estados_fact" Multiplicity="1" />
+          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estados_fact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Facturas">
+              <PropertyRef Name="Id_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Facturas_Personas">
+          <End Role="Personas" Type="Self.Personas" Multiplicity="1" />
+          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Facturas">
+              <PropertyRef Name="Id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Facturas_Servs_Plns">
+          <End Role="Servs_Plns" Type="Self.Servs_Plns" Multiplicity="1" />
+          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servs_Plns">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Facturas">
+              <PropertyRef Name="Id_servplan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Facturas_Tipos_pgs">
+          <End Role="Tipos_pgs" Type="Self.Tipos_pgs" Multiplicity="1" />
+          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipos_pgs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Facturas">
+              <PropertyRef Name="Id_tipopago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_muni_dpto">
+          <End Role="Dptos" Type="Self.Dptos" Multiplicity="1" />
+          <End Role="Municipios" Type="Self.Municipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dptos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Municipios">
+              <PropertyRef Name="Id_dpto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sedes_empresas">
+          <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
+          <End Role="Sedes" Type="Self.Sedes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sedes">
+              <PropertyRef Name="Id_empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_sedes_mun">
+          <End Role="Municipios" Type="Self.Municipios" Multiplicity="0..1" />
+          <End Role="Sedes" Type="Self.Sedes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sedes">
+              <PropertyRef Name="Id_ubicacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servs_Plns_Planes">
+          <End Role="Planes" Type="Self.Planes" Multiplicity="1" />
+          <End Role="Servs_Plns" Type="Self.Servs_Plns" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Servs_Plns">
+              <PropertyRef Name="Id_plan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servs_Plns_Servicios">
+          <End Role="Servicios" Type="Self.Servicios" Multiplicity="1" />
+          <End Role="Servs_Plns" Type="Self.Servs_Plns" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Servs_Plns">
+              <PropertyRef Name="Id_servicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Bd_GYMModelStoreContainer">
+          <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="C_congeladas" EntityType="Self.C_congeladas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Caja" EntityType="Self.Caja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Creditos" EntityType="Self.Creditos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dptos" EntityType="Self.Dptos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empresas" EntityType="Self.Empresas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estados_fact" EntityType="Self.Estados_fact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estados_pers" EntityType="Self.Estados_pers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Facturas" EntityType="Self.Facturas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Municipios" EntityType="Self.Municipios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paises" EntityType="Self.Paises" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personas" EntityType="Self.Personas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Planes" EntityType="Self.Planes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sedes" EntityType="Self.Sedes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servicios" EntityType="Self.Servicios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servs_Plns" EntityType="Self.Servs_Plns" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_estados" EntityType="Self.T_estados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipos_pgs" EntityType="Self.Tipos_pgs" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__C_congela__Id_cl__5CD6CB2B" Association="Self.FK__C_congela__Id_cl__5CD6CB2B">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="C_congeladas" EntitySet="C_congeladas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sedes__Id_propie__59FA5E80" Association="Self.FK__Sedes__Id_propie__59FA5E80">
+            <End Role="Admins" EntitySet="Admins" />
+            <End Role="Sedes" EntitySet="Sedes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Caja_Facturas" Association="Self.FK_Caja_Facturas">
+            <End Role="Facturas" EntitySet="Facturas" />
+            <End Role="Caja" EntitySet="Caja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clientes_Personas" Association="Self.FK_Clientes_Personas">
+            <End Role="Personas" EntitySet="Personas" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_creditos_facturas" Association="Self.FK_creditos_facturas">
+            <End Role="Facturas" EntitySet="Facturas" />
+            <End Role="Creditos" EntitySet="Creditos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dptos_paises" Association="Self.FK_dptos_paises">
+            <End Role="Paises" EntitySet="Paises" />
+            <End Role="Dptos" EntitySet="Dptos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estados_pers_Personas" Association="Self.FK_Estados_pers_Personas">
+            <End Role="Personas" EntitySet="Personas" />
+            <End Role="Estados_pers" EntitySet="Estados_pers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estados_pers_T_estados" Association="Self.FK_Estados_pers_T_estados">
+            <End Role="T_estados" EntitySet="T_estados" />
+            <End Role="Estados_pers" EntitySet="Estados_pers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Facturas_Estados_fact" Association="Self.FK_Facturas_Estados_fact">
+            <End Role="Estados_fact" EntitySet="Estados_fact" />
+            <End Role="Facturas" EntitySet="Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Facturas_Personas" Association="Self.FK_Facturas_Personas">
+            <End Role="Personas" EntitySet="Personas" />
+            <End Role="Facturas" EntitySet="Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Facturas_Servs_Plns" Association="Self.FK_Facturas_Servs_Plns">
+            <End Role="Servs_Plns" EntitySet="Servs_Plns" />
+            <End Role="Facturas" EntitySet="Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Facturas_Tipos_pgs" Association="Self.FK_Facturas_Tipos_pgs">
+            <End Role="Tipos_pgs" EntitySet="Tipos_pgs" />
+            <End Role="Facturas" EntitySet="Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_muni_dpto" Association="Self.FK_muni_dpto">
+            <End Role="Dptos" EntitySet="Dptos" />
+            <End Role="Municipios" EntitySet="Municipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sedes_empresas" Association="Self.FK_sedes_empresas">
+            <End Role="Empresas" EntitySet="Empresas" />
+            <End Role="Sedes" EntitySet="Sedes" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_sedes_mun" Association="Self.Fk_sedes_mun">
+            <End Role="Municipios" EntitySet="Municipios" />
+            <End Role="Sedes" EntitySet="Sedes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servs_Plns_Planes" Association="Self.FK_Servs_Plns_Planes">
+            <End Role="Planes" EntitySet="Planes" />
+            <End Role="Servs_Plns" EntitySet="Servs_Plns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servs_Plns_Servicios" Association="Self.FK_Servs_Plns_Servicios">
+            <End Role="Servicios" EntitySet="Servicios" />
+            <End Role="Servs_Plns" EntitySet="Servs_Plns" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Bd_GYMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Pri_nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Seg_nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pri_ape" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Seg_ape" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cedula" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Genero" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Correo" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Sedes" Relationship="Self.FK__Sedes__Id_propie__59FA5E80" FromRole="Admins" ToRole="Sedes" />
+        </EntityType>
+        <EntityType Name="C_congeladas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_cliente" Type="Int32" Nullable="false" />
+          <Property Name="Congela" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Regresa" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Dias_rest" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK__C_congela__Id_cl__5CD6CB2B" FromRole="C_congeladas" ToRole="Clientes" />
+        </EntityType>
+        <EntityType Name="Caja">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Fecha_ini" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Fecha_fin" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Id_factura" Type="Int32" Nullable="false" />
+          <Property Name="Valor_dia" Type="Int32" Nullable="false" />
+          <Property Name="Ganancia_cred" Type="Int32" Nullable="false" />
+          <Property Name="Ganancia_efec" Type="Int32" Nullable="false" />
+          <Property Name="Pagos" Type="Int32" Nullable="false" />
+          <Property Name="Retiros" Type="Int32" Nullable="false" />
+          <Property Name="Saldo_act" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Facturas" Relationship="Self.FK_Caja_Facturas" FromRole="Caja" ToRole="Facturas" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_persona" Type="Int32" Nullable="false" />
+          <Property Name="Fecha_pago" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Fecha_vence" Type="DateTime" Precision="0" />
+          <Property Name="Tiempo_mes" Type="Int32" />
+          <NavigationProperty Name="C_congeladas" Relationship="Self.FK__C_congela__Id_cl__5CD6CB2B" FromRole="Clientes" ToRole="C_congeladas" />
+          <NavigationProperty Name="Personas" Relationship="Self.FK_Clientes_Personas" FromRole="Clientes" ToRole="Personas" />
+        </EntityType>
+        <EntityType Name="Creditos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_fact" Type="Int32" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Fecha_lim" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Abono" Type="Int32" Nullable="false" />
+          <Property Name="Saldo_r" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Facturas" Relationship="Self.FK_creditos_facturas" FromRole="Creditos" ToRole="Facturas" />
+        </EntityType>
+        <EntityType Name="Dptos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_pais" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Paises" Relationship="Self.FK_dptos_paises" FromRole="Dptos" ToRole="Paises" />
+          <NavigationProperty Name="Municipios" Relationship="Self.FK_muni_dpto" FromRole="Dptos" ToRole="Municipios" />
+        </EntityType>
+        <EntityType Name="Empresas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Sedes" Relationship="Self.FK_sedes_empresas" FromRole="Empresas" ToRole="Sedes" />
+        </EntityType>
+        <EntityType Name="Estados_fact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Estados_fact" FromRole="Estados_fact" ToRole="Facturas" />
+        </EntityType>
+        <EntityType Name="Estados_pers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_estado" Type="Int32" Nullable="false" />
+          <Property Name="Id_persona" Type="Int32" Nullable="false" />
+          <Property Name="Comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Personas" Relationship="Self.FK_Estados_pers_Personas" FromRole="Estados_pers" ToRole="Personas" />
+          <NavigationProperty Name="T_estados" Relationship="Self.FK_Estados_pers_T_estados" FromRole="Estados_pers" ToRole="T_estados" />
+        </EntityType>
+        <EntityType Name="Facturas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_persona" Type="Int32" Nullable="false" />
+          <Property Name="Id_tipopago" Type="Int32" Nullable="false" />
+          <Property Name="Id_estado" Type="Int32" Nullable="false" />
+          <Property Name="Id_servplan" Type="Int32" Nullable="false" />
+          <Property Name="Valor_t" Type="Int32" Nullable="false" />
+          <Property Name="Numero_f" Type="Int32" Nullable="false" />
+          <Property Name="Descuento" Type="Int32" Nullable="false" />
+          <Property Name="Interes" Type="Int32" Nullable="false" />
+          <Property Name="Iva" Type="Int32" Nullable="false" />
+          <Property Name="Flete" Type="Int32" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Caja" Relationship="Self.FK_Caja_Facturas" FromRole="Facturas" ToRole="Caja" />
+          <NavigationProperty Name="Creditos" Relationship="Self.FK_creditos_facturas" FromRole="Facturas" ToRole="Creditos" />
+          <NavigationProperty Name="Estados_fact" Relationship="Self.FK_Facturas_Estados_fact" FromRole="Facturas" ToRole="Estados_fact" />
+          <NavigationProperty Name="Personas" Relationship="Self.FK_Facturas_Personas" FromRole="Facturas" ToRole="Personas" />
+          <NavigationProperty Name="Servs_Plns" Relationship="Self.FK_Facturas_Servs_Plns" FromRole="Facturas" ToRole="Servs_Plns" />
+          <NavigationProperty Name="Tipos_pgs" Relationship="Self.FK_Facturas_Tipos_pgs" FromRole="Facturas" ToRole="Tipos_pgs" />
+        </EntityType>
+        <EntityType Name="Municipios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_dpto" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Dptos" Relationship="Self.FK_muni_dpto" FromRole="Municipios" ToRole="Dptos" />
+          <NavigationProperty Name="Sedes" Relationship="Self.Fk_sedes_mun" FromRole="Municipios" ToRole="Sedes" />
+        </EntityType>
+        <EntityType Name="Paises">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Dptos" Relationship="Self.FK_dptos_paises" FromRole="Paises" ToRole="Dptos" />
+        </EntityType>
+        <EntityType Name="Personas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Pri_nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Seg_nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pri_ape" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Seg_ape" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cedula" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Genero" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Correo" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_Personas" FromRole="Personas" ToRole="Clientes" />
+          <NavigationProperty Name="Estados_pers" Relationship="Self.FK_Estados_pers_Personas" FromRole="Personas" ToRole="Estados_pers" />
+          <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Personas" FromRole="Personas" ToRole="Facturas" />
+        </EntityType>
+        <EntityType Name="Planes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Servs_Plns" Relationship="Self.FK_Servs_Plns_Planes" FromRole="Planes" ToRole="Servs_Plns" />
+        </EntityType>
+        <EntityType Name="Sedes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="NIT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Mail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_propietario" Type="Int32" />
+          <Property Name="Id_empresa" Type="Int32" />
+          <Property Name="Id_ubicacion" Type="Int32" />
+          <NavigationProperty Name="Admins" Relationship="Self.FK__Sedes__Id_propie__59FA5E80" FromRole="Sedes" ToRole="Admins" />
+          <NavigationProperty Name="Empresas" Relationship="Self.FK_sedes_empresas" FromRole="Sedes" ToRole="Empresas" />
+          <NavigationProperty Name="Municipios" Relationship="Self.Fk_sedes_mun" FromRole="Sedes" ToRole="Municipios" />
+        </EntityType>
+        <EntityType Name="Servicios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Servs_Plns" Relationship="Self.FK_Servs_Plns_Servicios" FromRole="Servicios" ToRole="Servs_Plns" />
+        </EntityType>
+        <EntityType Name="Servs_Plns">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_servicio" Type="Int32" Nullable="false" />
+          <Property Name="Id_plan" Type="Int32" Nullable="false" />
+          <Property Name="valor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Servs_Plns" FromRole="Servs_Plns" ToRole="Facturas" />
+          <NavigationProperty Name="Planes" Relationship="Self.FK_Servs_Plns_Planes" FromRole="Servs_Plns" ToRole="Planes" />
+          <NavigationProperty Name="Servicios" Relationship="Self.FK_Servs_Plns_Servicios" FromRole="Servs_Plns" ToRole="Servicios" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="T_estados">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Estados_pers" Relationship="Self.FK_Estados_pers_T_estados" FromRole="T_estados" ToRole="Estados_pers" />
+        </EntityType>
+        <EntityType Name="Tipos_pgs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Tipos_pgs" FromRole="Tipos_pgs" ToRole="Facturas" />
+        </EntityType>
+        <Association Name="FK__Sedes__Id_propie__59FA5E80">
+          <End Role="Admins" Type="Self.Admins" Multiplicity="0..1" />
+          <End Role="Sedes" Type="Self.Sedes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admins">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sedes">
+              <PropertyRef Name="Id_propietario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__C_congela__Id_cl__5CD6CB2B">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+          <End Role="C_congeladas" Type="Self.C_congeladas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="C_congeladas">
+              <PropertyRef Name="Id_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Caja_Facturas">
+          <End Role="Facturas" Type="Self.Facturas" Multiplicity="1" />
+          <End Role="Caja" Type="Self.Caja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facturas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Caja">
+              <PropertyRef Name="Id_factura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clientes_Personas">
+          <End Role="Personas" Type="Self.Personas" Multiplicity="1" />
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="Id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_creditos_facturas">
+          <End Role="Facturas" Type="Self.Facturas" Multiplicity="1" />
+          <End Role="Creditos" Type="Self.Creditos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facturas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Creditos">
+              <PropertyRef Name="Id_fact" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dptos_paises">
+          <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
+          <End Role="Dptos" Type="Self.Dptos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paises">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dptos">
+              <PropertyRef Name="Id_pais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_muni_dpto">
+          <End Role="Dptos" Type="Self.Dptos" Multiplicity="1" />
+          <End Role="Municipios" Type="Self.Municipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dptos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Municipios">
+              <PropertyRef Name="Id_dpto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sedes_empresas">
+          <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
+          <End Role="Sedes" Type="Self.Sedes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sedes">
+              <PropertyRef Name="Id_empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Facturas_Estados_fact">
+          <End Role="Estados_fact" Type="Self.Estados_fact" Multiplicity="1" />
+          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estados_fact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Facturas">
+              <PropertyRef Name="Id_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estados_pers_Personas">
+          <End Role="Personas" Type="Self.Personas" Multiplicity="1" />
+          <End Role="Estados_pers" Type="Self.Estados_pers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Estados_pers">
+              <PropertyRef Name="Id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estados_pers_T_estados">
+          <End Role="T_estados" Type="Self.T_estados" Multiplicity="1" />
+          <End Role="Estados_pers" Type="Self.Estados_pers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_estados">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Estados_pers">
+              <PropertyRef Name="Id_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Facturas_Personas">
+          <End Role="Personas" Type="Self.Personas" Multiplicity="1" />
+          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Facturas">
+              <PropertyRef Name="Id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Facturas_Servs_Plns">
+          <End Role="Servs_Plns" Type="Self.Servs_Plns" Multiplicity="1" />
+          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servs_Plns">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Facturas">
+              <PropertyRef Name="Id_servplan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Facturas_Tipos_pgs">
+          <End Role="Tipos_pgs" Type="Self.Tipos_pgs" Multiplicity="1" />
+          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipos_pgs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Facturas">
+              <PropertyRef Name="Id_tipopago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_sedes_mun">
+          <End Role="Municipios" Type="Self.Municipios" Multiplicity="0..1" />
+          <End Role="Sedes" Type="Self.Sedes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sedes">
+              <PropertyRef Name="Id_ubicacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servs_Plns_Planes">
+          <End Role="Planes" Type="Self.Planes" Multiplicity="1" />
+          <End Role="Servs_Plns" Type="Self.Servs_Plns" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Servs_Plns">
+              <PropertyRef Name="Id_plan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servs_Plns_Servicios">
+          <End Role="Servicios" Type="Self.Servicios" Multiplicity="1" />
+          <End Role="Servs_Plns" Type="Self.Servs_Plns" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Servs_Plns">
+              <PropertyRef Name="Id_servicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Bd_GYMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admins" />
+          <EntitySet Name="C_congeladas" EntityType="Self.C_congeladas" />
+          <EntitySet Name="Caja" EntityType="Self.Caja" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+          <EntitySet Name="Creditos" EntityType="Self.Creditos" />
+          <EntitySet Name="Dptos" EntityType="Self.Dptos" />
+          <EntitySet Name="Empresas" EntityType="Self.Empresas" />
+          <EntitySet Name="Estados_fact" EntityType="Self.Estados_fact" />
+          <EntitySet Name="Estados_pers" EntityType="Self.Estados_pers" />
+          <EntitySet Name="Facturas" EntityType="Self.Facturas" />
+          <EntitySet Name="Municipios" EntityType="Self.Municipios" />
+          <EntitySet Name="Paises" EntityType="Self.Paises" />
+          <EntitySet Name="Personas" EntityType="Self.Personas" />
+          <EntitySet Name="Planes" EntityType="Self.Planes" />
+          <EntitySet Name="Sedes" EntityType="Self.Sedes" />
+          <EntitySet Name="Servicios" EntityType="Self.Servicios" />
+          <EntitySet Name="Servs_Plns" EntityType="Self.Servs_Plns" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="T_estados" EntityType="Self.T_estados" />
+          <EntitySet Name="Tipos_pgs" EntityType="Self.Tipos_pgs" />
+          <AssociationSet Name="FK__Sedes__Id_propie__59FA5E80" Association="Self.FK__Sedes__Id_propie__59FA5E80">
+            <End Role="Admins" EntitySet="Admins" />
+            <End Role="Sedes" EntitySet="Sedes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__C_congela__Id_cl__5CD6CB2B" Association="Self.FK__C_congela__Id_cl__5CD6CB2B">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="C_congeladas" EntitySet="C_congeladas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Caja_Facturas" Association="Self.FK_Caja_Facturas">
+            <End Role="Facturas" EntitySet="Facturas" />
+            <End Role="Caja" EntitySet="Caja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clientes_Personas" Association="Self.FK_Clientes_Personas">
+            <End Role="Personas" EntitySet="Personas" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_creditos_facturas" Association="Self.FK_creditos_facturas">
+            <End Role="Facturas" EntitySet="Facturas" />
+            <End Role="Creditos" EntitySet="Creditos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dptos_paises" Association="Self.FK_dptos_paises">
+            <End Role="Paises" EntitySet="Paises" />
+            <End Role="Dptos" EntitySet="Dptos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_muni_dpto" Association="Self.FK_muni_dpto">
+            <End Role="Dptos" EntitySet="Dptos" />
+            <End Role="Municipios" EntitySet="Municipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sedes_empresas" Association="Self.FK_sedes_empresas">
+            <End Role="Empresas" EntitySet="Empresas" />
+            <End Role="Sedes" EntitySet="Sedes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Facturas_Estados_fact" Association="Self.FK_Facturas_Estados_fact">
+            <End Role="Estados_fact" EntitySet="Estados_fact" />
+            <End Role="Facturas" EntitySet="Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estados_pers_Personas" Association="Self.FK_Estados_pers_Personas">
+            <End Role="Personas" EntitySet="Personas" />
+            <End Role="Estados_pers" EntitySet="Estados_pers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estados_pers_T_estados" Association="Self.FK_Estados_pers_T_estados">
+            <End Role="T_estados" EntitySet="T_estados" />
+            <End Role="Estados_pers" EntitySet="Estados_pers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Facturas_Personas" Association="Self.FK_Facturas_Personas">
+            <End Role="Personas" EntitySet="Personas" />
+            <End Role="Facturas" EntitySet="Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Facturas_Servs_Plns" Association="Self.FK_Facturas_Servs_Plns">
+            <End Role="Servs_Plns" EntitySet="Servs_Plns" />
+            <End Role="Facturas" EntitySet="Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Facturas_Tipos_pgs" Association="Self.FK_Facturas_Tipos_pgs">
+            <End Role="Tipos_pgs" EntitySet="Tipos_pgs" />
+            <End Role="Facturas" EntitySet="Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_sedes_mun" Association="Self.Fk_sedes_mun">
+            <End Role="Municipios" EntitySet="Municipios" />
+            <End Role="Sedes" EntitySet="Sedes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servs_Plns_Planes" Association="Self.FK_Servs_Plns_Planes">
+            <End Role="Planes" EntitySet="Planes" />
+            <End Role="Servs_Plns" EntitySet="Servs_Plns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servs_Plns_Servicios" Association="Self.FK_Servs_Plns_Servicios">
+            <End Role="Servicios" EntitySet="Servicios" />
+            <End Role="Servs_Plns" EntitySet="Servs_Plns" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Bd_GYMModelStoreContainer" CdmEntityContainer="Bd_GYMEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="Bd_GYMModel.Admins">
+              <MappingFragment StoreEntitySet="Admins">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Pri_nom" ColumnName="Pri_nom" />
+                <ScalarProperty Name="Seg_nom" ColumnName="Seg_nom" />
+                <ScalarProperty Name="Pri_ape" ColumnName="Pri_ape" />
+                <ScalarProperty Name="Seg_ape" ColumnName="Seg_ape" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C_congeladas">
+            <EntityTypeMapping TypeName="Bd_GYMModel.C_congeladas">
+              <MappingFragment StoreEntitySet="C_congeladas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_cliente" ColumnName="Id_cliente" />
+                <ScalarProperty Name="Congela" ColumnName="Congela" />
+                <ScalarProperty Name="Regresa" ColumnName="Regresa" />
+                <ScalarProperty Name="Dias_rest" ColumnName="Dias_rest" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Caja">
+            <EntityTypeMapping TypeName="Bd_GYMModel.Caja">
+              <MappingFragment StoreEntitySet="Caja">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fecha_ini" ColumnName="Fecha_ini" />
+                <ScalarProperty Name="Fecha_fin" ColumnName="Fecha_fin" />
+                <ScalarProperty Name="Id_factura" ColumnName="Id_factura" />
+                <ScalarProperty Name="Valor_dia" ColumnName="Valor_dia" />
+                <ScalarProperty Name="Ganancia_cred" ColumnName="Ganancia_cred" />
+                <ScalarProperty Name="Ganancia_efec" ColumnName="Ganancia_efec" />
+                <ScalarProperty Name="Pagos" ColumnName="Pagos" />
+                <ScalarProperty Name="Retiros" ColumnName="Retiros" />
+                <ScalarProperty Name="Saldo_act" ColumnName="Saldo_act" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="Bd_GYMModel.Clientes">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_persona" ColumnName="Id_persona" />
+                <ScalarProperty Name="Fecha_pago" ColumnName="Fecha_pago" />
+                <ScalarProperty Name="Fecha_vence" ColumnName="Fecha_vence" />
+                <ScalarProperty Name="Tiempo_mes" ColumnName="Tiempo_mes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Creditos">
+            <EntityTypeMapping TypeName="Bd_GYMModel.Creditos">
+              <MappingFragment StoreEntitySet="Creditos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_fact" ColumnName="Id_fact" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Fecha_lim" ColumnName="Fecha_lim" />
+                <ScalarProperty Name="Abono" ColumnName="Abono" />
+                <ScalarProperty Name="Saldo_r" ColumnName="Saldo_r" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dptos">
+            <EntityTypeMapping TypeName="Bd_GYMModel.Dptos">
+              <MappingFragment StoreEntitySet="Dptos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id_pais" ColumnName="Id_pais" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empresas">
+            <EntityTypeMapping TypeName="Bd_GYMModel.Empresas">
+              <MappingFragment StoreEntitySet="Empresas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estados_fact">
+            <EntityTypeMapping TypeName="Bd_GYMModel.Estados_fact">
+              <MappingFragment StoreEntitySet="Estados_fact">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estados_pers">
+            <EntityTypeMapping TypeName="Bd_GYMModel.Estados_pers">
+              <MappingFragment StoreEntitySet="Estados_pers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_estado" ColumnName="Id_estado" />
+                <ScalarProperty Name="Id_persona" ColumnName="Id_persona" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Facturas">
+            <EntityTypeMapping TypeName="Bd_GYMModel.Facturas">
+              <MappingFragment StoreEntitySet="Facturas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_persona" ColumnName="Id_persona" />
+                <ScalarProperty Name="Id_tipopago" ColumnName="Id_tipopago" />
+                <ScalarProperty Name="Id_estado" ColumnName="Id_estado" />
+                <ScalarProperty Name="Id_servplan" ColumnName="Id_servplan" />
+                <ScalarProperty Name="Valor_t" ColumnName="Valor_t" />
+                <ScalarProperty Name="Numero_f" ColumnName="Numero_f" />
+                <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+                <ScalarProperty Name="Interes" ColumnName="Interes" />
+                <ScalarProperty Name="Iva" ColumnName="Iva" />
+                <ScalarProperty Name="Flete" ColumnName="Flete" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Municipios">
+            <EntityTypeMapping TypeName="Bd_GYMModel.Municipios">
+              <MappingFragment StoreEntitySet="Municipios">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id_dpto" ColumnName="Id_dpto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paises">
+            <EntityTypeMapping TypeName="Bd_GYMModel.Paises">
+              <MappingFragment StoreEntitySet="Paises">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personas">
+            <EntityTypeMapping TypeName="Bd_GYMModel.Personas">
+              <MappingFragment StoreEntitySet="Personas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Pri_nom" ColumnName="Pri_nom" />
+                <ScalarProperty Name="Seg_nom" ColumnName="Seg_nom" />
+                <ScalarProperty Name="Pri_ape" ColumnName="Pri_ape" />
+                <ScalarProperty Name="Seg_ape" ColumnName="Seg_ape" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Planes">
+            <EntityTypeMapping TypeName="Bd_GYMModel.Planes">
+              <MappingFragment StoreEntitySet="Planes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sedes">
+            <EntityTypeMapping TypeName="Bd_GYMModel.Sedes">
+              <MappingFragment StoreEntitySet="Sedes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="NIT" ColumnName="NIT" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Id_propietario" ColumnName="Id_propietario" />
+                <ScalarProperty Name="Id_empresa" ColumnName="Id_empresa" />
+                <ScalarProperty Name="Id_ubicacion" ColumnName="Id_ubicacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servicios">
+            <EntityTypeMapping TypeName="Bd_GYMModel.Servicios">
+              <MappingFragment StoreEntitySet="Servicios">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servs_Plns">
+            <EntityTypeMapping TypeName="Bd_GYMModel.Servs_Plns">
+              <MappingFragment StoreEntitySet="Servs_Plns">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_servicio" ColumnName="Id_servicio" />
+                <ScalarProperty Name="Id_plan" ColumnName="Id_plan" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Bd_GYMModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_estados">
+            <EntityTypeMapping TypeName="Bd_GYMModel.T_estados">
+              <MappingFragment StoreEntitySet="T_estados">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipos_pgs">
+            <EntityTypeMapping TypeName="Bd_GYMModel.Tipos_pgs">
+              <MappingFragment StoreEntitySet="Tipos_pgs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

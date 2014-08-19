@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="278e0811a36c4a5db0790d0b0f8c602e" Name="Diagram1" ZoomLevel="83">
+        <EntityTypeShape EntityType="Bd_GYMModel.Admins" Width="1.5" PointX="12.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd_GYMModel.C_congeladas" Width="1.5" PointX="5.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd_GYMModel.Caja" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd_GYMModel.Clientes" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd_GYMModel.Creditos" Width="1.5" PointX="5.25" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd_GYMModel.Dptos" Width="1.5" PointX="10" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd_GYMModel.Empresas" Width="1.5" PointX="12.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd_GYMModel.Estados_fact" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd_GYMModel.Estados_pers" Width="1.5" PointX="6" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd_GYMModel.Facturas" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd_GYMModel.Municipios" Width="1.5" PointX="12.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd_GYMModel.Paises" Width="1.5" PointX="7.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd_GYMModel.Personas" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd_GYMModel.Planes" Width="1.5" PointX="1.5" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd_GYMModel.Sedes" Width="1.5" PointX="14.5" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd_GYMModel.Servicios" Width="1.5" PointX="1.5" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd_GYMModel.Servs_Plns" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd_GYMModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd_GYMModel.T_estados" Width="1.5" PointX="3.75" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bd_GYMModel.Tipos_pgs" Width="1.5" PointX="0.75" PointY="19.375" IsExpanded="true" />
+        <AssociationConnector Association="Bd_GYMModel.FK__Sedes__Id_propie__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="Bd_GYMModel.FK__C_congela__Id_cl__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="Bd_GYMModel.FK_Caja_Facturas" ManuallyRouted="false" />
+        <AssociationConnector Association="Bd_GYMModel.FK_Clientes_Personas" ManuallyRouted="false" />
+        <AssociationConnector Association="Bd_GYMModel.FK_creditos_facturas" ManuallyRouted="false" />
+        <AssociationConnector Association="Bd_GYMModel.FK_dptos_paises" ManuallyRouted="false" />
+        <AssociationConnector Association="Bd_GYMModel.FK_muni_dpto" ManuallyRouted="false" />
+        <AssociationConnector Association="Bd_GYMModel.FK_sedes_empresas" ManuallyRouted="false" />
+        <AssociationConnector Association="Bd_GYMModel.FK_Facturas_Estados_fact" ManuallyRouted="false" />
+        <AssociationConnector Association="Bd_GYMModel.FK_Estados_pers_Personas" ManuallyRouted="false" />
+        <AssociationConnector Association="Bd_GYMModel.FK_Estados_pers_T_estados" ManuallyRouted="false" />
+        <AssociationConnector Association="Bd_GYMModel.FK_Facturas_Personas" ManuallyRouted="false" />
+        <AssociationConnector Association="Bd_GYMModel.FK_Facturas_Servs_Plns" ManuallyRouted="false" />
+        <AssociationConnector Association="Bd_GYMModel.FK_Facturas_Tipos_pgs" ManuallyRouted="false" />
+        <AssociationConnector Association="Bd_GYMModel.Fk_sedes_mun" ManuallyRouted="false" />
+        <AssociationConnector Association="Bd_GYMModel.FK_Servs_Plns_Planes" ManuallyRouted="false" />
+        <AssociationConnector Association="Bd_GYMModel.FK_Servs_Plns_Servicios" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
