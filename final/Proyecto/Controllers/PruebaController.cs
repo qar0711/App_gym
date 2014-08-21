@@ -13,6 +13,7 @@ namespace Proyecto.Controllers
 
         public ActionResult Index()
         {
+
             ViewBag("cualquier texto");
             return View();
         }
